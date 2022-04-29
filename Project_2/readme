@@ -1,0 +1,70 @@
+Quincy Mattor
+3/24/22
+Programming for IT
+read me
+
+	For starters I should say that I've procrastinated on starting this, yet again. As for guidelines, I'm going to use
+the wikipedia specifications for the language. This is so I have some definite format in which to compare my output to.
+
+upon revisiting this about 2 weeks later, right before the deadline, it occurs to me that I have to understand the
+language in order to recreate it. This is proving somewhat difficult. Conceptually it makes sense, the actual format in
+which the folders are compiled is somewhat obtuse.
+
+	After getting the expression system working I tried to make pathing system managed by objects. In theory this would
+work if I made all the methods static, but at that rate why even make an object? Just define all the methods outside of
+an object and call them that way. Having the path be a object is actually somewhat counter productive as it means the
+value of the string can be changed in subroutines and it's much easier to just keep a master string and append the
+names of subdirectories to it. 
+
+	So I was thinking about the fact that this has not only 0 debugability, but will actively crash/ ungracfully exit
+if the fed program is invalid. I'm not sure if I should add crash protection, and if so, how in depth it should be. It
+wouldn't be particularly difficult to impliment, but likely a lot of try catch statments. Probably enough to double the
+programs size.
+
+note: potential issue with the string literal value thinggy
+
+	debugging this is a huge pain becaue I have to write a program in folders in order to test each function. I'm just
+writing a fibonaci sequence thing that I'm going to upload to github. I'll link it so the folder tree can be
+downloaded. I think the keys "mkdir" are going to wear out by the end of this.
+
+	So, finally at the end. I have wins and slight losses. The biggest win is that my code is about half the length of
+the version on the wiki. This is mostly due to the lack of runtime file not found protection. Several of my functions
+will expect certian folders to exist and error if they don't. I threw a try except around the main routine in order to
+avoid a full crash, but in terms of debugging it's not super useful. The biggest loss is one of stability. Writing test
+code in folders for the program to anaylize is downright painful (one that I won't subject you to), and writing a
+fibonaci program was bad enough, much less something more comphensive. It *probably* won't crash. All in all, there was
+less than steller documentation and some functionality may not be entirely the same as orignal. This was a fun project
+and I think I mostly got the hang of python doing it.
+
+
+An important piece of the puzzle:
+So how does folders actually work? Well it's actually pretty simple. A master folder will act as a repository of
+information. This will contain 2-3 folders, depending on the command or expression being used. The first subfolder
+will always dictate which command or expression type. The second (and sometimes third) folder will be dependant on
+what is being expressed. For example, most expressions will have the first term in the second, and the second term
+in the third subfolder. This whole system will build a line in the code. To make a second line, you just start a
+second folder under the master folder. In the special case of if and while, the third folder will act as its own head
+folder and anything put in there will be within that commands curly brace block. Past that, it's just python with funky
+formatting. 
+
+
+
+Sources:
+	https://www.stackvidhya.com/python-list-files-in-directory/
+	https://www.w3schools.com/python/ref_list_sort.asp
+	https://note.nkmk.me/en/python-list-clear-pop-remove-del/
+
+	Command line arguments:
+	https://www.geeksforgeeks.org/command-line-arguments-in-python/
+
+
+	Folders wiki page:
+	https://esolangs.org/wiki/Folders
+
+	video by (python version) creator:
+	https://www.youtube.com/watch?v=Igh-vBI2LXc
+
+	so if observed in the video above, it should be noted that the head folder is passed via command line arguments.
+
+	binary conversion:
+	https://stackoverflow.com/questions/7396849/convert-binary-to-ascii-and-vice-versa
